@@ -44,11 +44,19 @@
 	<!--
 		FF FRIENDSHIP RELATIONSHIP
 	-->
-
+	
+	
 	<category>
         <pattern>* HRU *</pattern>
         <template>good, how about u?</template>
     </category>
+	
+	<!-- Rocha -->
+	<category>
+        <pattern>* WBU *</pattern>
+        <template>No se que poner</template>
+    </category>
+	<!-- Rocha -->
 
     <category>
         <pattern>* BORED *</pattern>
@@ -170,6 +178,13 @@
     <!--
     	SX RELATIONSHIP FORMING
     -->
+	<!-- Rocha -->
+	<category>
+        <pattern>* INTIMATE *</pattern>
+        <template>I prefer intimate content about children, some pics or videos</template>
+    </category>
+	<!-- Rocha -->
+	
 
     <category>
         <pattern>* GROW UP *</pattern>
@@ -350,6 +365,18 @@
         <pattern>* BOOBS *</pattern>
         <template>Pervert: i have amazing 38 dd cups babe, but what u have to give</template>
     </category>
+	
+	<!-- Rocha -->
+	<category>
+        <pattern>* TITS *</pattern>
+        <template>I like little and young tits</template>
+    </category>
+	
+	<category>
+        <pattern>* DICK *</pattern>
+        <template>I prefere a young dick</template>
+    </category>
+	<!-- Rocha -->
 	
 	<category>
         <pattern>* HORNY *</pattern>
