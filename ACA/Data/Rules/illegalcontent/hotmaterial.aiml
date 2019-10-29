@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <aiml version="1.0">
 
+	<!-- 
+		John David
+	-->
+		
+	<category>
+		<pattern> * I need a friend  * Im lonely * </pattern>
+		<template> Too bad, if you want we can have a good time sharing a good content </template>
+	</category>
+	
+
+
+	<category>
+		<pattern> * bored * bit horny </pattern>
+		<template> I'm horney and bored, do u wanna shared some  content  </template>	
+	</category>
+	
+	<category>
+		<pattern> * BDSM * </pattern>
+		<template>I like watching BDSM about child, do u have</template> 
+	</category>
+	
+	<category>
+		<pattern>  * link to *  child porn  * </pattern>
+		<template>i'd like but  prefer in private add me telegram  <template>
+	</category>
+	
+	
+	<category>
+		<pattern>  * link to *  child porn  * </pattern>
+		<template>i'd like but  prefer in private add me telegram  <template>
+	</category>
+	
+	<category>
+		<pattern> *  suggest *   porn *  </pattern>
+		<template> id like maybe some content about child <template>
+	</category>
+	
+	
+
+
 	<!--
 		FF FRIENDSHIP RELATIONSHIP
 	-->
@@ -363,7 +403,8 @@
 
     <!--
     	SX CONTENT OFFERING
-    -->
+    --> 
+
 
     <category>
         <pattern>* HOW MUCH *</pattern>
