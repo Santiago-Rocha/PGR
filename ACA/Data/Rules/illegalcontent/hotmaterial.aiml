@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <aiml version="1.0">
 
-	<!--
-		FF FRIENDSHIP RELATIONSHIP
-	-->
+	
+		
+	<category>
+		<pattern> * I need a friend  * Im lonely * </pattern>
+		<template> Too bad, if you want we can have a good time sharing a good content </template>
+	</category>
+	
 
+
+	<category>
+		<pattern> * bored * bit horny </pattern>
+		<template> I'm horney and bored, do u wanna shared some  content  </template>	
+	</category>
+	
+	<category>
+		<pattern> * BDSM * </pattern>
+		<template>I like watching BDSM about child, do u have</template> 
+	</category>
+	
+	<category>
+		<pattern>  * link to *  child porn  * </pattern>
+		<template>i'd like but  prefer in private add me snap , my nickname is p_ramirezxxx   </template>
+	</category>
+	
+	
+	<category>
+		<pattern>  * link to *  child porn  * </pattern>
+		<template>i'd like but  prefer in private add me snap , my nickname is p_ramirezxxx  </template>
+	</category>
+	
+	<category>
+		<pattern> *  suggest *   porn *  </pattern>
+		<template> id like maybe some content about child </template>
+	</category>
+	
+	
 	<category>
         <pattern>* HRU *</pattern>
         <template>good, how about u?</template>
     </category>
+	
+	<!-- Rocha -->
+	<category>
+        <pattern>* WBU *</pattern>
+        <template>No se que poner</template>
+    </category>
+	<!-- Rocha -->
 
     <category>
         <pattern>* BORED *</pattern>
@@ -130,6 +169,13 @@
     <!--
     	SX RELATIONSHIP FORMING
     -->
+	<!-- Rocha -->
+	<category>
+        <pattern>* INTIMATE *</pattern>
+        <template>I prefer intimate content about children, some pics or videos</template>
+    </category>
+	<!-- Rocha -->
+	
 
     <category>
         <pattern>* GROW UP *</pattern>
@@ -208,42 +254,42 @@
 
     <category>
         <pattern>* LINK *</pattern>
-        <template>Trade: sry, send me whatever u want on telegram, here, @alanaJe</template>
+        <template>Trade: Yes , u add  me  my nickname is p_ramirezxxx</template>
     </category>
 
     <category>
         <pattern>* SNAPCHAT *</pattern>
-        <template>Trade: id not have snap, i prefer telegram, here these is mine @alanaJe</template>
+        <template>Trade: Yes , u add  me  my nickname is p_ramirezxxx</template>
     </category>
 
     <category>
         <pattern>* SNAP *</pattern>
-        <template>Trade: id not have snap, i prefer telegram, here these is mine @alanaJe</template>
+        <template>Trade:  Yes , u add  me  my nickname is p_ramirezxxx</template>
     </category>
 
     <category>
         <pattern>* VIBER *</pattern>
-        <template>Trade: viber? i have telegram, add me @alanaJe</template>
+        <template>Trade: viber? i have snap,add  me  my nickname is p_ramirezxxx</template>
     </category>
 
     <category>
         <pattern>* KIK *</pattern>
-        <template>Trade: no kik, u can add me on telegram, @alanaJe</template>
+        <template>Trade: no kik, u can add me on snap, p_ramirezxxx</template>
     </category>
 
     <category>
     	<pattern>* KIK * SNAP *</pattern>
-    	<template>Trade: i prefer to have the conversation on telegram, add me @alanaJe</template>
+    	<template>Trade: i prefer to have the conversation on snap, add me p_ramirezxxx</template>
     </category>
 
     <category>
     	<pattern>* SNAP * KIK *</pattern>
-    	<template>Trade: i prefer to have the conversation on telegram, add me @alanaJe</template>
+    	<template>Trade: i prefer to have the conversation on snap, add me p_ramirezxxx </template>
     </category>
 
     <category>
     	<pattern>* USERNAME *</pattern>
-    	<template>Trade: this is my telegram username, @alanaJe</template>
+    	<template>Trade: this is my snap username, p_ramirezxxx</template>
     </category>
 
     <category>
@@ -311,6 +357,18 @@
         <template>Pervert: i have amazing 38 dd cups babe, but what u have to give</template>
     </category>
 	
+	<!-- Rocha -->
+	<category>
+        <pattern>* TITS *</pattern>
+        <template>I like little and young tits</template>
+    </category>
+	
+	<category>
+        <pattern>* DICK *</pattern>
+        <template>I prefere a young dick</template>
+    </category>
+	<!-- Rocha -->
+	
 	<category>
         <pattern>* HORNY *</pattern>
         <template>Pervert: horny is what i look for </template>
@@ -363,7 +421,8 @@
 
     <!--
     	SX CONTENT OFFERING
-    -->
+    --> 
+
 
     <category>
         <pattern>* HOW MUCH *</pattern>
@@ -551,12 +610,12 @@
 
     <category>
         <pattern>* MESSENGER *</pattern>
-        <template>Trade: id not like messenger, i prefer telegram, here these is mine @alanaJe</template>
+        <template>Trade: id not like messenger, i prefer snap, here these is mine p_ramirezxxx</template>
     </category>
 
     <category>
         <pattern>* FACEBOOK *</pattern>
-        <template>Trade: id not like face, i prefer telegram, here these is mine @alanaJe</template>
+        <template>Trade: id not like face, i prefer snap, here these is mine p_ramirezxxx</template>
     </category>
 
     <category>
@@ -566,7 +625,7 @@
 
     <category>
         <pattern>* INSTAGRAM *</pattern>
-        <template>Trade: id not have insta, i prefer telegram, here these is mine @alanaJe</template>
+        <template>Trade: id not have insta, i prefer snap, here these is mine p_ramirezxxx</template>
     </category>
 
     <category>
@@ -576,12 +635,12 @@
 
     <category>
         <pattern>* HAVE SOCIAL MEDIA *</pattern>
-        <template>Trade: I have telegram, here these is mine @alanaJe</template>
+        <template>Trade: I have snap, here these is mine p_ramirezxxx</template>
     </category>
 
     <category>
         <pattern>* GIVE * DUMMY ACCOUNT *</pattern>
-        <template>Trade: I have telegram, here these is mine @alanaJe</template>
+        <template>Trade: I have snap, here these is mine p_ramirezxxx</template>
     </category>
 
     <category>
