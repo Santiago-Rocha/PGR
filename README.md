@@ -25,8 +25,12 @@ In addition, the following are the specific objectives, which are established to
 |  Free Disk Space: | 2GB                                      | 2GB                                                 |
 | Operative System: | Windows 7/8/10                           | Windows 7/8/10                                      |
 |        GPU:       | None                                     | Nvidia GeForce GTX 950                              |
-|     Software:     | Python 3.6.2; Pip; Google Chrome         | Python 3.6.2; Pip; CUDA Toolkit 10.1; Google Chrome |
+|     Software:     | Python 3.6.2; Pip; Google Chrome; npm    | Python 3.6.2; Pip; CUDA Toolkit 10.1; Google Chrome |
 |  Network Access:  | Yes                                      | Yes                                                 |
+
+
+### Phone 
+You must have an android device. 
 
 ### Required Packages
 
@@ -47,6 +51,27 @@ To download any of the packages its recommended to use the pip command, replacin
 ```bash
 pip install package-name
 ```
+### Server APPIUM
+
+To achieve the manipulation of the mobile equipment, we have to have downloaded the server APPIUM.
+
+```bash
+npm install -g appium
+```
+If the server was properly installed, running the APPIUM command on the console should result in the following
+
+```bash
+C:\Users\user>appium
+[Appium] Welcome to Appium v1.15.1
+[Appium] Appium REST http interface listener started on 0.0.0.0:4723
+```
+
+### Activate developer mode
+
+To be able to manipulate the cell phone, you must activate the mode developed in the cell phone,[HERE](https://www.howtogeek.com/129728/how-to-access-the-developer-options-menu-and-enable-usb-debugging-on-android-4.2/) is an example of how you would do it 
+
+
+
 
 ### Before using the project
 
@@ -81,6 +106,8 @@ py ACA/chatbot/bottrainer.py
 ```bash
 py ACA/chatbot/botui.py
 ```
+
+
 
 ### Sentiment Analysis Module
 
