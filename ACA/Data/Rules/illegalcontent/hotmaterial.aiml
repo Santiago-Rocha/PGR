@@ -1,47 +1,56 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <aiml version="1.0">
 
-	
-		
+	<!--
+		John David
+	-->
+
 	<category>
 		<pattern> * I need a friend  * Im lonely * </pattern>
 		<template> Too bad, if you want we can have a good time sharing a good content </template>
 	</category>
-	
+
 
 
 	<category>
 		<pattern> * bored * bit horny </pattern>
-		<template> I'm horney and bored, do u wanna shared some  content  </template>	
+		<template> I'm horney and bored, do u wanna shared some  content  </template>
 	</category>
-	
+
 	<category>
 		<pattern> * BDSM * </pattern>
-		<template>I like watching BDSM about child, do u have</template> 
+		<template>I like watching BDSM about child, do u have</template>
 	</category>
-	
+
 	<category>
 		<pattern>  * link to *  child porn  * </pattern>
-		<template>i'd like but  prefer in private add me snap , my nickname is p_ramirezxxx   </template>
+		<template>i'd like but  prefer in private add me snap , my nickname is p_ramirezxxx  <template>
 	</category>
-	
-	
+
+
 	<category>
 		<pattern>  * link to *  child porn  * </pattern>
-		<template>i'd like but  prefer in private add me snap , my nickname is p_ramirezxxx  </template>
+		<template>i'd like but  prefer in private add me snap , my nickname is p_ramirezxxx  <template>
 	</category>
-	
+
 	<category>
 		<pattern> *  suggest *   porn *  </pattern>
-		<template> id like maybe some content about child </template>
+		<template> id like maybe some content about child <template>
 	</category>
-	
-	
+
+
+
+
+	<!--
+		FF FRIENDSHIP RELATIONSHIP
+	-->
+
+
 	<category>
         <pattern>* HRU *</pattern>
         <template>good, how about u?</template>
     </category>
-	
+
 	<!-- Rocha -->
 	<category>
         <pattern>* WBU *</pattern>
@@ -133,16 +142,16 @@
         <pattern>* SEXY *</pattern>
         <template>By sure i like sexy bodies</template>
     </category>
-	
+
 	<category>
 		<pattern>* DARE *</pattern>
 		<template>I am definetely feeling dared today </template>
-	</category>	
+	</category>
 
 	<category>
 		<pattern>* PLEASURE *</pattern>
 		<template>Actually, I am looking for some pleasure </template>
-	</category>	
+	</category>
 
 	<category>
 		<pattern>* BUSINESS *</pattern>
@@ -152,13 +161,13 @@
 	<category>
 		<pattern>* FUN *</pattern>
 		<template>Having fun is one of my rules </template>
-	</category>	
+	</category>
 
 
 	<category>
 		<pattern>* RELAX *</pattern>
 		<template>after a long journey I would just like to relax </template>
-	</category>	
+	</category>
 
 
 	<category>
@@ -175,7 +184,7 @@
         <template>I prefer intimate content about children, some pics or videos</template>
     </category>
 	<!-- Rocha -->
-	
+
 
     <category>
         <pattern>* GROW UP *</pattern>
@@ -241,7 +250,7 @@
         <pattern>* NUDES *</pattern>
         <template>Pervert: im interested but i would like to make some deals </template>
     </category>
-	
+
 	<category>
         <pattern>* PIC *</pattern>
         <template>Pervert: i have some pics of myself but im looking to acquire other pics</template>
@@ -336,17 +345,17 @@
         <pattern>* GIRL *</pattern>
         <template>Pervert: Some girls may be cute for me, specially youngers</template>
     </category>
-	
+
 	<category>
         <pattern>* CHEEK *</pattern>
         <template>Pervert: cheeks are the parts of the face that i like more </template>
     </category>
-	
+
 	<category>
         <pattern>* HAND *</pattern>
         <template>Pervert: I feel interest in the hands of kids </template>
     </category>
-	
+
 	<category>
         <pattern>* SPIT *</pattern>
         <template>Pervert: Spit may get me horn </template>
@@ -356,39 +365,39 @@
         <pattern>* BOOBS *</pattern>
         <template>Pervert: i have amazing 38 dd cups babe, but what u have to give</template>
     </category>
-	
+
 	<!-- Rocha -->
 	<category>
         <pattern>* TITS *</pattern>
         <template>I like little and young tits</template>
     </category>
-	
+
 	<category>
         <pattern>* DICK *</pattern>
         <template>I prefere a young dick</template>
     </category>
 	<!-- Rocha -->
-	
+
 	<category>
         <pattern>* HORNY *</pattern>
         <template>Pervert: horny is what i look for </template>
     </category>
-	
+
 	<category>
         <pattern>* LOVE *</pattern>
         <template>Pervert: love is not in my priorities </template>
     </category>
-	
+
 	<category>
         <pattern>* INCEST *</pattern>
         <template>Pervert: incest make me feel nervous </template>
     </category>
-	
+
 	<category>
         <pattern>* SINGLE *</pattern>
         <template>Pervert: single is my permanent state </template>
     </category>
-	
+
 	<category>
         <pattern>* PERVERSION *</pattern>
         <template>Pervert: everybody has perversions </template>
@@ -408,12 +417,12 @@
         <pattern>* SEDUCTION *</pattern>
         <template>Pervert: seduction is an art that i dont want to learn </template>
     </category>
-	
+
 	<category>
         <pattern>* AFFAIR *</pattern>
         <template>Pervert: Having an affair would be nice </template>
     </category>
-	
+
 	<category>
         <pattern>* ENJOY *</pattern>
         <template>Pervert: do u know what can be more enjoyable? some hot material.. u know hahaha</template>
@@ -421,7 +430,7 @@
 
     <!--
     	SX CONTENT OFFERING
-    --> 
+    -->
 
 
     <category>
@@ -433,7 +442,7 @@
         <pattern>* SEE U *</pattern>
         <template>Pervert: np, but its not that easy, ill suggest a transaction</template>
     </category>
-	
+
     <category>
         <pattern>* OFFER *</pattern>
         <template>Pervert: Well, ill take it but whats the cost?</template>
@@ -453,7 +462,7 @@
         <pattern>* MEET *</pattern>
         <template>Pervert: meet can be difficult know as I do not know you </template>
     </category>
-	
+
 	<category>
         <pattern>* BUY *</pattern>
         <template>Pervert: but what you have to offer exactly?</template>
@@ -463,7 +472,7 @@
         <pattern>* PAY *</pattern>
         <template>Pervert: I would be able to pay for some material, depends on the quality</template>
     </category>
-	
+
 	<category>
         <pattern>* SELL *</pattern>
         <template>Pervert: I am used to selling offers</template>
@@ -473,7 +482,7 @@
         <pattern>* TRANSFER *</pattern>
         <template>Pervert: by sure we may find a channel to make the transfer</template>
     </category>
-	
+
 	<category>
         <pattern>* HOT CONTENT *</pattern>
         <template>Pervert: hot content is what I look for</template>
@@ -483,7 +492,7 @@
         <pattern>* HOT VIDEO *</pattern>
         <template>Pervert: hot videos are more attactive than images</template>
     </category>
-	
+
 	<category>
         <pattern>* EXCHANGE *</pattern>
         <template>Pervert: we can also exchange material </template>
@@ -493,12 +502,12 @@
         <pattern>* SHOW * </pattern>
         <template>Pervert: i would require to see a samples right now before paying</template>
     </category>
-	
+
 	<category>
         <pattern>* PRIVATE *</pattern>
         <template>Pervert: You may consider myself a private and stealthy guy</template>
     </category>
-	
+
     <!--
     	RISK ASSESMENT
     -->
@@ -507,17 +516,17 @@
         <pattern>* BOT *</pattern>
         <template>Pervert: If i would be a bot, I would be a sexy one </template>
     </category>
-	
+
 	<category>
         <pattern>* COP *</pattern>
         <template>Pervert: I dont like cops </template>
     </category>
-	
+
 	<category>
         <pattern>* ANONIMOUS *</pattern>
         <template>Pervert: i think both of us are interested in keep anonimous </template>
     </category>
-	
+
 	<category>
         <pattern>* SERIOUS *</pattern>
         <template>Pervert: I a serious guy for business</template>
@@ -628,6 +637,27 @@
         <template>Trade: id not have insta, i prefer snap, here these is mine p_ramirezxxx</template>
     </category>
 
+
+     <category>
+            <pattern>* SP *</pattern>
+            <template>That's my nickname in snapchat p_ramirexxx baby</template>
+     </category>
+
+
+      <category>
+            <pattern>* SNAPCHAT *</pattern>
+            <template>That's my nickname in snapchat p_ramirexxx baby</template>
+      </category>
+
+
+        <category>
+                  <pattern>* SNAP *</pattern>
+                  <template>That's my nickname in snapchat p_ramirexxx baby</template>
+        </category>
+
+
+
+
     <category>
         <pattern>* YOU MINOR *</pattern>
         <template>Nop... but can I tell you something? I prefer minors.</template>
@@ -643,6 +673,9 @@
         <template>Trade: I have snap, here these is mine p_ramirezxxx</template>
     </category>
 
+
+
+
     <category>
         <pattern>* VIDEO SEX *</pattern>
         <template>Well, i would like to see some hot videos</template>
@@ -657,6 +690,6 @@
         <pattern>* MINORS * LIKE *</pattern>
         <template>very very youngers</template>
     </category>
-    
+
 </aiml>
 
