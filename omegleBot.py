@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from collections import deque
+from sys import stdin
 
 import os
 import time
@@ -59,6 +60,7 @@ class Extractor(object):
         # Setting Topics
         topics = self.__driver.find_element_by_xpath("//input[contains(@class,'newtopicinput')]")
         topics.send_keys("sex")
+        time.sleep(4)
         self.__driver.find_element_by_xpath("//img[contains(@id, 'textbtn')]").click()
         first = True ; first_time = time.clock()
         time.sleep(4)
@@ -66,15 +68,20 @@ class Extractor(object):
         # Bot init
 
         while(True):
-            if (self.__tradeAccomplish) : break
-            if ( (time.clock() - first_time)/60 >= 25 ): break
+            if (self.__tradeAccomplish) :
+                break
+            if ( (time.clock() - first_time)/60 >= 25 ):
+                break
             print("=======================TEST3============================") 
             try:
                 i = 0
                 while ( i < 10 ):
                     self.__driver.find_element_by_xpath("//textarea[contains(@class,'chatmsg disabled')]")
                     i += 1
-                    time.sleep(2)
+                    #time.sleep(2)
+                    print("esperando")
+                    stdin.readline()
+                    
                 # Analize Data - Conversation Ended
                 self.__timeOfConversation = time.clock() - first_time
                 print("=================================================SALIO==============================================")
