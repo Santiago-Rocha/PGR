@@ -37,7 +37,7 @@ class Extractor(object):
         self.__driver = webdriver.Chrome('chromedriver', port=8080)    
         time.sleep(10)
         print("===============================================")
-        print("===============================================")
+        print("====================LOADING====================")
         print("===============================================")
         self.__driver.get("https://www.omegle.com")
 
@@ -60,7 +60,7 @@ class Extractor(object):
         # Setting Topics
         topics = self.__driver.find_element_by_xpath("//input[contains(@class,'newtopicinput')]")
         topics.send_keys("sex")
-        time.sleep(4)
+        #time.sleep(4)
         self.__driver.find_element_by_xpath("//img[contains(@id, 'textbtn')]").click()
         first = True ; first_time = time.clock()
         time.sleep(4)
@@ -78,13 +78,9 @@ class Extractor(object):
                 while ( i < 10 ):
                     self.__driver.find_element_by_xpath("//textarea[contains(@class,'chatmsg disabled')]")
                     i += 1
-                    #time.sleep(2)
-                    print("esperando")
-                    stdin.readline()
                     
                 # Analize Data - Conversation Ended
                 self.__timeOfConversation = time.clock() - first_time
-                print("=================================================SALIO==============================================")
                 #self.__driver.find_element_by_xpath("//button[contains(@class, 'disconnectbtn')]").click()
                 break
             except :

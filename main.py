@@ -1,5 +1,6 @@
 from omegleBot import Extractor as omegleExtractor
-from telegramBot import Extractor as telegramExtractor
+#from telegramBot import Extractor as telegramExtractor
+from snapchatBot import Extractor as snapExtractor
 from settings import PROJECT_ROOT
 from threading import Thread
 import threading
@@ -97,6 +98,23 @@ def firstImplementation():
     #saveMetrics( emotionsAndSentiments[0], emotionsAndSentiments[1], metrics, repFiles )
 
 if __name__ == '__main__':
+    snapchat = snapExtractor()
+    omegle = omegleExtractor()
+    while (True):
+        omegle.moti(snapchat)
+        tradeSnapchat = omegle.getTradeAccomplish()
+        if(tradeSnapchat){
+            snapchat.moti()
+        }
+        repFiles = saveReplies([omegle]) # Save omegle and telegram replies
+        emotionsAndSentiments = analyze(repFiles)
+        timeMetric, rulesMetric = analytics.getMetrics( [omegle] )
+        saveMetrics( emotionsAndSentiments[0], emotionsAndSentiments[1], timeMetric, rulesMetric, repFiles )
+        # OMEGLE NOTIFICATION
+        omegle.reset()
+
+"""
+if __name__ == '__main__':
     telegram = telegramExtractor()
     omegle = omegleExtractor()
     threadTelegram = Thread(target = startBot, args = (telegram, ))
@@ -123,6 +141,7 @@ if __name__ == '__main__':
         saveMetrics( emotionsAndSentiments[0], emotionsAndSentiments[1], timeMetric, rulesMetric, repFiles )
         # OMEGLE NOTIFICATION
         omegle.reset()
+"""
 
 ##if __name__ == '__main__':
 ##    omegle = omegleExtractor()
