@@ -69,6 +69,7 @@ class Extractor(object):
 
     def __init_conversation(self):
         initConversation = False
+        start = time.time()
         with tf.Session() as sess:
             while (True):
                 question = self.conn.recv(1024).decode(encoding='UTF-8')
@@ -81,14 +82,21 @@ class Extractor(object):
                 ans = self.__analyse(responseStranger[1])
                 sys.stdout.write(responseStranger[1])
                 sys.stdout.flush()
+                elapsed = int(time.time() - start)
+                if(elapsed>205):
+                    ans = 'Bye. I have to go.'
                 self.conn.send(bytes(ans + "\r\n", 'UTF-8'))
                 self.__initTimeUserResponse = time.clock();
+                if(ans.lower().contains("bye")):
+                    break;
+
+
 
     def __openConnection(self):
         """__openConnection()
-
         """
         # Open telegram with all cache in Chrome
+
         self.appium = threading.Thread(target=self.__start_appium)
         self.appium.start()
         time.sleep(10)
@@ -125,7 +133,7 @@ class Extractor(object):
         words = ""
         botResponse = ":)"
         for i in range(len(answer)):
-            words = answer[-1 - i].text.split("\n")[-1].strip() + " " + words
+            words = answer[-1 - i].split("\n")[-1].strip() + " " + words
             print("============TEXT============")
             print(answer[-1 - i].text)
             print(self.__currentName)
