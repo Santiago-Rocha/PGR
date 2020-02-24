@@ -40,11 +40,13 @@ class Extractor(object):
 
     def __start_appium(self):
         '''start server appium'''
-        self.os.system("appium")
+        #os.system("appium")
+        os.system("start /wait cmd /c appium")
 
 
     def __execute_chat_bot(self, pwdSnap: str):
-        os.system("mvn exec:" + pwdSnap)
+        #os.system("mvn exec:java -f " + pwdSnap)
+        os.system("start /wait cmd /c mvn exec:java -f " + pwdSnap)
 
     def __bot_socket(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -54,7 +56,13 @@ class Extractor(object):
             print('Bind failed. Error Code : '.format(err))
         s.listen(10)
         print("Socket Listening")
+        #os.system("start /wait cmd /c mvn exec:java -f " + pwdSnap)
+        #print("Java Listening")
         self.conn, self.addr = s.accept()
+        
+        
+
+        
 
     def __init_conversation(self):
         initConversation = False
@@ -80,11 +88,19 @@ class Extractor(object):
         # Open telegram with all cache in Chrome
         self.appium = threading.Thread(target=self.__start_appium)
         self.appium.start()
-        time.sleep(4)  # required time for server start
-        self.snapchat = threading.Thread(target=self.__execute_chat_bot("C:/"))
-        self.snapchat.start()
+        time.sleep(10)
+        
         # Open socket
+        self.snapchat = threading.Thread(target=self.__execute_chat_bot("C:\\Users\\PERSONAL\\Documents\\PGR\\Snapchat"))
+        self.snapchat.start()
+
+        #self.bot_sock = threading.Thread(target=self.__bot_socket())
+        #self.bot_sock.start()
+
         self.__bot_socket()
+        
+        
+        
 
         # Same variables as in file omegleBot.py
         self.__conversation = []
