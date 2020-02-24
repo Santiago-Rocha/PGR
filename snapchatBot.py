@@ -38,6 +38,7 @@ class Extractor(object):
         self.HOST = "localhost"
         self.PORT = 9999
 
+
     def __start_appium(self):
         '''start server appium'''
         #os.system("appium")
@@ -49,11 +50,13 @@ class Extractor(object):
         os.system("start /wait cmd /c mvn exec:java -f " + pwdSnap)
 
     def __bot_socket(self):
+        print("Inciando socket")
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
             s.bind((self.HOST, self.PORT))
         except socket.error as err:
             print('Bind failed. Error Code : '.format(err))
+
         s.listen(10)
         print("Socket Listening")
         #os.system("start /wait cmd /c mvn exec:java -f " + pwdSnap)
@@ -91,7 +94,7 @@ class Extractor(object):
         time.sleep(10)
         
         # Open socket
-        self.snapchat = threading.Thread(target=self.__execute_chat_bot("C:\\Users\\PERSONAL\\Documents\\PGR\\Snapchat"))
+        self.snapchat = threading.Thread(target=self.__execute_chat_bot , args=("C:\\",))
         self.snapchat.start()
 
         #self.bot_sock = threading.Thread(target=self.__bot_socket())
