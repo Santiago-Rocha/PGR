@@ -60,9 +60,9 @@ class Extractor(object):
 
         s.listen(10)
         print("Socket Listening")
-        #os.system("start /wait cmd /c mvn exec:java -f " + pwdSnap)
-        #print("Java Listening")
         self.conn, self.addr = s.accept()
+
+        self.__init_conversation()
         
         
 
@@ -77,6 +77,7 @@ class Extractor(object):
                 print(question)
                 # Structe of the text  nameStager:text
                 responseStranger = question.split(":")
+                print(responseStranger)
                 if not initConversation and len(question) > 0:
                     initConversation = True
                     self.__currentName = responseStranger[0]
@@ -103,11 +104,8 @@ class Extractor(object):
         time.sleep(10)
         
         # Open socket
-        self.snapchat = threading.Thread(target=self.__execute_chat_bot , args=("C:\\",))
+        self.snapchat = threading.Thread(target=self.__execute_chat_bot , args=("C:\\Users\\PERSONAL\\Documents\\PGR\\Snapchat",))
         self.snapchat.start()
-
-        #self.bot_sock = threading.Thread(target=self.__bot_socket())
-        #self.bot_sock.start()
 
         self.__bot_socket()
         
@@ -133,11 +131,15 @@ class Extractor(object):
 
         words = ""
         botResponse = ":)"
+        """
         for i in range(len(answer)):
             words = answer[-1 - i].split("\n")[-1].strip() + " " + words
             print("============TEXT============")
-            print(answer[-1 - i].text)
+            print(answer[-1 - i].strip())
             print(self.__currentName)
+        """
+        cut_words = answer.split("\n")
+        words =  " ".join(cut_words).strip()
         self.__currentLength = len(answer)
         if (words != ""):
             # Bot Response
