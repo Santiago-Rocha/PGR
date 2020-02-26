@@ -101,17 +101,16 @@ if __name__ == '__main__':
     snapchat = snapExtractor()
     omegle = omegleExtractor()
     while (True):
-        snapchat.moti()
-        """omegle.moti(snapchat)
+        omegle.moti(snapchat)
         tradeSnapchat = omegle.getTradeAccomplish()
         if(tradeSnapchat):
             snapchat.moti()
-        repFiles = saveReplies([omegle]) # Save omegle and telegram replies
+        repFiles = saveReplies([omegle,snapchat]) # Save omegle and telegram replies
         emotionsAndSentiments = analyze(repFiles)
-        timeMetric, rulesMetric = analytics.getMetrics( [omegle] )
+        timeMetric, rulesMetric = analytics.getMetrics( [omegle, snapchat] )
         saveMetrics( emotionsAndSentiments[0], emotionsAndSentiments[1], timeMetric, rulesMetric, repFiles )
         # OMEGLE NOTIFICATION
-        omegle.reset()"""
+        omegle.reset()
 
 """
 if __name__ == '__main__':

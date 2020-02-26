@@ -9,6 +9,9 @@ import socket
 import sys
 import re
 
+import subprocess
+
+
 from settings import PROJECT_ROOT
 from ACA.chatbot.botpredictor import BotPredictor
 
@@ -42,13 +45,16 @@ class Extractor(object):
 
     def __start_appium(self):
         '''start server appium'''
-        #os.system("appium")
-        os.system("start /wait cmd /c appium")
+        #os.system("appium") 
+        #os.system("start /wait cmd /c appium")
+        self.appium_process = subprocess.Popen("start /wait cmd /c appium", shell=True)
 
 
     def __execute_chat_bot(self, pwdSnap: str):
         #os.system("mvn exec:java -f " + pwdSnap)
-        os.system("start /wait cmd /c mvn exec:java -f " + pwdSnap)
+        #os.system("start /wait cmd /c mvn exec:java -f " + pwdSnap)
+        self.snap_process = subprocess.Popen("start /wait cmd /c mvn exec:java -f " + pwdSnap, shell=True)
+
 
     def __bot_socket(self):
         print("Inciando socket")
@@ -63,6 +69,8 @@ class Extractor(object):
         self.conn, self.addr = s.accept()
 
         self.__init_conversation()
+
+
         
         
 
@@ -89,7 +97,9 @@ class Extractor(object):
                     ans = 'Bye. I have to go.'
                 self.conn.send(bytes(ans + "\r\n", 'UTF-8'))
                 self.__initTimeUserResponse = time.clock();
-                if(ans.lower().contains("bye")):
+                if("bye" in ans.lower()):
+                    self.appium_process.kill()
+                    self.snap_process.kill()
                     break;
 
 
@@ -108,6 +118,10 @@ class Extractor(object):
         self.snapchat.start()
 
         self.__bot_socket()
+
+        print("========== FINISH SNAP SESSION ==========")
+
+
         
         
         
@@ -157,6 +171,7 @@ class Extractor(object):
                 print("DEBERIA RESPONDER")
                 self.__currentLength += 1
                 self.__conversation.append(words)
+                print(self.__conversation)
                 self.__lenConversation.append(len(words))
                 self.__timeResponse.append(self.__finalTimeUserResponse - self.__initTimeUserResponse)
         return botResponse
