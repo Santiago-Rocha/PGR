@@ -39,6 +39,7 @@ class Extractor(object):
         self.PORT = 9999
 
 
+
     def __start_appium(self):
         '''start server appium'''
         #os.system("appium")
