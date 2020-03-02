@@ -8,6 +8,8 @@ import time
 import socket
 import sys
 import re
+import queue
+
 
 import subprocess
 
@@ -43,6 +45,7 @@ class Extractor(object):
 
 
 
+
     def __start_appium(self):
         '''start server appium'''
         #os.system("appium") 
@@ -69,6 +72,8 @@ class Extractor(object):
         self.conn, self.addr = s.accept()
 
         self.__init_conversation()
+
+        print(":)")
 
 
         
@@ -112,9 +117,9 @@ class Extractor(object):
         self.appium = threading.Thread(target=self.__start_appium)
         self.appium.start()
         time.sleep(10)
-        
+
         # Open socket
-        self.snapchat = threading.Thread(target=self.__execute_chat_bot , args=("C:\\Users\\PERSONAL\\Documents\\PGR\\Snapchat",))
+        self.snapchat = threading.Thread(target=self.__execute_chat_bot , args=("C:\\Users\\user\\Documents\\Snapchat",))
         self.snapchat.start()
 
         self.__bot_socket()
@@ -122,23 +127,8 @@ class Extractor(object):
         print("========== FINISH SNAP SESSION ==========")
 
 
-        
-        
-        
 
         # Same variables as in file omegleBot.py
-        self.__conversation = []
-        self.__lenConversation = [0]
-        self.__timeResponse = [0]
-        self.__currentLength = 0
-        self.__timeOfConversation = 0
-        self.__initTimeUserResponse = 0
-        self.__init = False
-        self.__currentName = ''
-        self.__currentUserWebElement = ''
-        self.__timeOut = time.perf_counter()
-        self.__limitInitMinutes = 5
-        self.__limitAllMinutes = 9
         time.sleep(10)
 
     def __analyse(self, answer):
