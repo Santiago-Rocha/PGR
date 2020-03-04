@@ -27,10 +27,28 @@ def saveReplies( bots ):
     files = list()
     # Responses given by the user
     userResponses = list()
+    completeCoversation = list()
+    for bot in bots:
+        completeCoversation += bot.getCompleteCoversation()
+
     for bot in bots:
         userResponses += bot.getConversation()
+
     fileName = PROJECT_ROOT + "\\UsersReplies\\" + str(datetime.datetime.now()).replace(":","_").replace("-","_").replace(" ","_").replace(".","_") + ".txt"
-    files.append(fileName)        
+
+    completeCoversationFile = fileName.replace(".txt","_all.txt")
+
+    with open(completeCoversationFile , 'w+') as file:
+        for response in completeCoversation:
+            for i in response:
+                try:
+                    file.write(i)
+                except:
+                    print("fail")
+            file.write("\n")
+
+
+    files.append(fileName)
     with open(fileName, 'w+') as file:
         for response in userResponses:
             for i in response:
@@ -39,6 +57,8 @@ def saveReplies( bots ):
                 except:
                     print("fail")
             file.write("\n")
+
+
     return(files)
         
 def saveMetrics( sentiments, emotions, timeMetric, rulesMetric, files ):
@@ -101,7 +121,9 @@ if __name__ == '__main__':
     snapchat = snapExtractor()
     omegle = omegleExtractor()
     while (True):
-        omegle.moti(snapchat)
+        snapchat.moti()
+        repFiles = saveReplies([snapchat])
+        """omegle.moti(snapchat)
         tradeSnapchat = omegle.getTradeAccomplish()
         if(tradeSnapchat):
             snapchat.moti()
@@ -110,7 +132,7 @@ if __name__ == '__main__':
         timeMetric, rulesMetric = analytics.getMetrics( [omegle, snapchat] )
         saveMetrics( emotionsAndSentiments[0], emotionsAndSentiments[1], timeMetric, rulesMetric, repFiles )
         # OMEGLE NOTIFICATION
-        omegle.reset()
+        omegle.reset()"""
 
 """
 if __name__ == '__main__':
@@ -142,13 +164,4 @@ if __name__ == '__main__':
         omegle.reset()
 """
 
-##if __name__ == '__main__':
-##    omegle = omegleExtractor()
-##    while (True):
-##        omegle.moti()
-##        print("------> OMEGLE TRANSACTION : " + str(omegle.getTradeAccomplish()))
-##        repFiles = saveReplies([omegle])
-##        emotionsAndSentiments = analyze(repFiles)
-##        timeMetric, rulesMetric = analytics.getMetrics( [omegle] )
-##        saveMetrics( emotionsAndSentiments[0], emotionsAndSentiments[1], timeMetric, rulesMetric, repFiles )
-##        omegle.reset()
+

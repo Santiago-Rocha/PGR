@@ -43,6 +43,8 @@ class Extractor(object):
 
         # Stores the convesrsation, user replies
         self.__conversation = []
+        #  Stores the convesrsation complete, user replies and bot
+        self.__completeCoversation
         # Length of the conversation, only user replies
         self.__lenConversation = [0]
         # Time responses, to analize the metrics
@@ -135,7 +137,9 @@ class Extractor(object):
                 self.__tradeAccomplish = True
                 botResponse = botResponse[6:]
             print("FINAL ASW : " + botResponse)
-            if ( botResponse.strip() != "" and botResponse != None ): 
+            if ( botResponse.strip() != "" and botResponse != None ):
+                self.__completeCoversation("Stranger :" + words.lower())
+                self.__completeCoversation("bot :" + botResponse)
                 self.__currentLength += 1
                 self.__conversation.append(words)
                 self.__lenConversation.append( len(words) )
@@ -183,8 +187,12 @@ class Extractor(object):
     def getNumberOfInteractions(self):
         return len(self.__conversation)
 
+    def getCompleteCoversation(self):
+        return self.__completeCoversation
+
     def reset(self):
         self.__conversation = []
+        self.__completeCoversation = []
         self.__lenConversation = [0]
         self.__timeResponse = [0]
         self.__currentLength = 0

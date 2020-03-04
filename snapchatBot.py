@@ -161,6 +161,8 @@ class Extractor(object):
                 print("DEBERIA RESPONDER")
                 self.__currentLength += 1
                 self.__conversation.append(words)
+                self.__completeCoversation.append("Strager :" + words)
+                self.__completeCoversation.append("bot :" + botResponse)
                 print(self.__conversation)
                 self.__lenConversation.append(len(words))
                 self.__timeResponse.append(self.__finalTimeUserResponse - self.__initTimeUserResponse)
@@ -188,6 +190,9 @@ class Extractor(object):
     def getConversation(self):
         return self.__conversation
 
+    def getCompleteCoversation(self):
+        return self.__completeCoversation
+
     def getTimeOfConversation(self):
         return self.__timeOfConversation
 
@@ -205,6 +210,7 @@ class Extractor(object):
 
     def reset(self):
         self.__conversation = []
+        self.__completeCoversation = []
         self.__lenConversation = [0]
         self.__timeResponse = [0]
         self.__currentLength = 0
@@ -216,6 +222,7 @@ class Extractor(object):
 
     def tradeAccomplish(self, condition):
         self.__conversation = []
+        self.__completeCoversation = []
         self.__lenConversation = [0]
         self.__timeResponse = [0]
         self.__currentLength = 0
