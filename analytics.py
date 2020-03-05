@@ -26,6 +26,11 @@ def rulesConversationMetric(bots):
         metrics.append( bot.getNumberRulesMatched() / ( 1 if N == 0 else N ) )
     return metrics
 
+def getNumberRulesAndNumberOfInteractions(bots):
+    numberRulesMatched = bots[0].getNumberRulesMatched() + bots[1].getNumberRulesMatched()
+    numberInteractions = bots[0].getNumberOfInteractions() + bots[1].getNumberOfInteractions()
+    return [numberRulesMatched, numberInteractions]
+
 #def recognizedSentiments(bots):
 #    metrics = []
 #    for bot in bots:

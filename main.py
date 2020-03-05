@@ -46,6 +46,12 @@ def saveReplies( bots ):
                 except:
                     print("fail")
             file.write("\n")
+        numberRulesMatched, numberInteractions = analytics.getNumberRulesAndNumberOfInteractions(bots)
+        file.write("numberRulesMatched  : " + str(numberRulesMatched))
+        file.write("\n")
+        file.write("numberRulesNotMatched  : " + str(numberInteractions-numberRulesMatched))
+        file.write("\n")
+        file.write("numberInteractions  : " + str(numberInteractions))
 
 
     files.append(fileName)
@@ -123,7 +129,7 @@ if __name__ == '__main__':
     while (True):
         snapchat.moti()
         repFiles = saveReplies([snapchat])
-        """omegle.moti(snapchat)
+        omegle.moti(snapchat)
         tradeSnapchat = omegle.getTradeAccomplish()
         if(tradeSnapchat):
             snapchat.moti()
@@ -132,7 +138,7 @@ if __name__ == '__main__':
         timeMetric, rulesMetric = analytics.getMetrics( [omegle, snapchat] )
         saveMetrics( emotionsAndSentiments[0], emotionsAndSentiments[1], timeMetric, rulesMetric, repFiles )
         # OMEGLE NOTIFICATION
-        omegle.reset()"""
+        omegle.reset()
 
 """
 if __name__ == '__main__':
