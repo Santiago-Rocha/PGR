@@ -9,8 +9,7 @@ import socket
 import sys
 import re
 import queue
-
-
+from datetime import datetime
 import subprocess
 
 
@@ -122,14 +121,22 @@ class Extractor(object):
         self.snapchat = threading.Thread(target=self.__execute_chat_bot , args=("C:\\Users\\user\\Documents\\Snapchat",))
         self.snapchat.start()
 
+        #Get time when SP started
+        self.startTimeSP = datetime.now()
+
+
         self.__bot_socket()
 
         print("========== FINISH SNAP SESSION ==========")
-
-
-
+        #Get time when SP ended
+        self.endTimeSP = datetime.now()
+        timeStart = datetime.timestamp(self.startTimeSP)
+        timeEnd = datetime.timestamp(self.startTimeSP)
+        self.__timeOfConversation = timeEnd-timeStart
         # Same variables as in file omegleBot.py
         time.sleep(10)
+
+
 
     def __analyse(self, answer):
 
@@ -207,6 +214,17 @@ class Extractor(object):
 
     def getNumberOfInteractions(self):
         return len(self.__conversation)
+
+
+    def getStartTimeSP(self):
+        timestamp = datetime.timestamp(self.startTimeSP)
+        #example of return 2020-03-07 20:23:47.881883
+        return datetime.fromtimestamp(timestamp)
+
+    def endTimeSP(self):
+        timestamp = datetime.timestamp(self.endTimeSP)
+        #example of return 2020-03-07 20:23:47.881883
+        return datetime.fromtimestamp(timestamp)
 
     def reset(self):
         self.__conversation = []

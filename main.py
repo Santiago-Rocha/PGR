@@ -54,6 +54,12 @@ def saveReplies( bots ):
         file.write("numberInteractions  : " + str(numberInteractions))
 
 
+
+
+
+
+
+
     files.append(fileName)
     with open(fileName, 'w+') as file:
         for response in userResponses:
@@ -127,8 +133,6 @@ if __name__ == '__main__':
     snapchat = snapExtractor()
     omegle = omegleExtractor()
     while (True):
-        snapchat.moti()
-        repFiles = saveReplies([snapchat])
         omegle.moti(snapchat)
         tradeSnapchat = omegle.getTradeAccomplish()
         if(tradeSnapchat):
