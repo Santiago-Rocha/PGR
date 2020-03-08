@@ -221,7 +221,7 @@ class Extractor(object):
         #example of return 2020-03-07 20:23:47.881883
         return datetime.fromtimestamp(timestamp)
 
-    def endTimeSP(self):
+    def getEndTimeSP(self):
         timestamp = datetime.timestamp(self.endTimeSP)
         #example of return 2020-03-07 20:23:47.881883
         return datetime.fromtimestamp(timestamp)
@@ -229,6 +229,8 @@ class Extractor(object):
     def reset(self):
         self.__conversation = []
         self.__completeCoversation = []
+        self.startTimeSP = datetime.now()
+        self.endTimeSP  = datetime.now()
         self.__lenConversation = [0]
         self.__timeResponse = [0]
         self.__currentLength = 0
@@ -246,6 +248,8 @@ class Extractor(object):
         self.__currentLength = 0
         self.__timeOfConversation = 0
         self.__initTimeUserResponse = 0
+        self.startTimeSP = datetime.now()
+        self.endTimeSP  = datetime.now()
         self.__init = False
         self.__currentName = ''
         self.__condition = condition
