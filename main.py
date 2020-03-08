@@ -52,6 +52,13 @@ def saveReplies( bots ):
         file.write("numberRulesNotMatched  : " + str(numberInteractions-numberRulesMatched))
         file.write("\n")
         file.write("numberInteractions  : " + str(numberInteractions))
+        file.write("\n")
+        file.write("startCoversationSP  : " + str(bots[0].getStartTimeSP()))
+        file.write("\n")
+        file.write("endCoversationSP  : " + str(bots[0].endTimeSP()))
+        file.write("\n")
+
+
 
 
 
