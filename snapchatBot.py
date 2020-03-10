@@ -209,6 +209,9 @@ class Extractor(object):
     def getNumberRulesMatched(self):
         return self.__predictor.getNumberMatchedRules()
 
+    def getNumberLinks(self):
+        return self.__predictor.getSizeUrls()
+
     def getLenEachPost(self):
         return self.__lenConversation
 
