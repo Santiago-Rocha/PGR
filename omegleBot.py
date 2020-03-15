@@ -12,6 +12,7 @@ import tensorflow as tf
 import SA_Module.sentimentAnalysis as sentimentModule
 import analytics as analize
 import Slangs.slangExtractor as slangs 
+from datetime import datetime
 
 from settings import PROJECT_ROOT
 from ACA.chatbot.botpredictor import BotPredictor
@@ -49,6 +50,10 @@ class Extractor(object):
         self.__lenConversation = [0]
         # Time responses, to analize the metrics
         self.__timeResponse = [0]
+        # Starting time of the conversation
+        self.startTime = datetime.now()
+        # ending time of the conversation
+        self.endTime = datetime.now()
         # Current length of the conversation, to make controls
         self.__currentLength = 0
         self.__timeOfConversation = 0
@@ -101,6 +106,7 @@ class Extractor(object):
                     first_time = time.clock()
                     first = False
             time.sleep(2)
+        self.endTime = datetime.now()
         self.__driver.quit()
         return self.__tradeAccomplish
         
@@ -137,9 +143,9 @@ class Extractor(object):
                 self.__tradeAccomplish = True
                 botResponse = botResponse[6:]
             print("FINAL ASW : " + botResponse)
-            if ( botResponse.strip() != "" and botResponse != None ):
-                self.__completeCoversation("Stranger :" + words.lower())
-                self.__completeCoversation("bot :" + botResponse)
+            if ( botResponse != None and botResponse.strip() != ""):
+                self.__completeCoversation.append("Stranger :" + words.lower())
+                self.__completeCoversation.append("bot :" + botResponse)
                 self.__currentLength += 1
                 self.__conversation.append(words)
                 self.__lenConversation.append( len(words) )
@@ -149,10 +155,12 @@ class Extractor(object):
                     time.sleep(0.05)
                     textarea.send_keys(i)
                 self.__driver.find_element_by_xpath("//button[contains(@class, 'sendbtn')]").click()
+                self.startTime = datetime.now()
             
         elif ( self.__currentLength == 0 ): 
             textarea = self.__driver.find_element_by_xpath("//textarea[contains(@class,'chatmsg')]")
             textarea.send_keys("Hi")
+            self.startTime = datetime.now()
             self.__driver.find_element_by_xpath("//button[contains(@class, 'sendbtn')]").click()
             self.__currentLength += 1
             self.__finalTimeUserResponse = time.clock()
@@ -189,6 +197,14 @@ class Extractor(object):
 
     def getCompleteCoversation(self):
         return self.__completeCoversation
+
+    def getStartTime(self):
+        timestamp = datetime.timestamp(self.startTime)
+        return datetime.fromtimestamp(timestamp)
+
+    def getEndTime(self):
+        timestamp = datetime.timestamp(self.endTime)
+        return datetime.fromtimestamp(timestamp)    
 
     def reset(self):
         self.__conversation = []

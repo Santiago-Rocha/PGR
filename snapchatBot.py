@@ -66,12 +66,18 @@ class Extractor(object):
         except socket.error as err:
             print('Bind failed. Error Code : '.format(err))
 
+        s.settimeout(60)
         s.listen(10)
-        print("Socket Listening")
-        self.conn, self.addr = s.accept()
 
-        self.__init_conversation()
+        try:
+            print("Socket Listening")
+            self.conn, self.addr = s.accept()
 
+            print("Socket Connected")
+            s.settimeout(600)
+            self.__init_conversation()
+        except socket.timeout:
+            print("error connecting to JAVA socket")
         print(":)")
 
 
