@@ -109,6 +109,10 @@ class Extractor(object):
         self.endTime = datetime.now()
         self.__driver.quit()
         return self.__tradeAccomplish
+
+
+    def getNumberLinks(self):
+        return self.__predictor.getSizeUrls()
         
     def response(self, userResponse):
         """

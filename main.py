@@ -4,7 +4,7 @@ from snapchatBot import Extractor as snapExtractor
 from settings import PROJECT_ROOT
 from threading import Thread
 import threading
-
+import os
 import SA_Module.sentimentAnalysis as sentimentModule
 import EC_Module.emotional_classifier as emotionalModule
 import analytics
@@ -38,6 +38,8 @@ def saveReplies( bots ):
 
     completeCoversationFile = fileName.replace(".txt","_all.txt")
 
+    other_metrics =  fileName.replace(".txt","_other_metrics.txt")
+
     with open(completeCoversationFile , 'w+') as file:
         for response in completeCoversation:
             for i in response:
@@ -46,6 +48,8 @@ def saveReplies( bots ):
                 except:
                     print("fail")
             file.write("\n")
+
+    with open(other_metrics, "w+") as file:
         numberRulesMatched, numberInteractions = analytics.getNumberRulesAndNumberOfInteractions(bots)
         file.write("numberRulesMatched  : " + str(numberRulesMatched))
         file.write("\n")
@@ -59,17 +63,17 @@ def saveReplies( bots ):
         file.write("\n")
         file.write("startCoversationSP  : " + str(bots[1].getStartTimeSP()))
         file.write("\n")
-        file.write("endCoversationSP  : " + str(bots[1].getEndTimeSP()))
+        file.write("startCoversationSP  : " + str(bots[1].getEndTimeSP()))
         file.write("\n")
 
-
-
-
-
-
-
-
-
+        file.write("url_snap  : " + str(bots[0].getNumberLinks()))
+        file.write("\n")
+        file.write("url_snap  : " + str(bots[1].getNumberLinks()))
+        file.write("\n")
+        total_links = bots[0].getNumberLinks() + bots[1].getNumberLinks()
+        file.write("url_total  : " + str(total_links))
+        file.write("\n")
+        file.write("size_bytes_file : " + os.path.getsize(completeCoversationFile))
 
     files.append(fileName)
     with open(fileName, 'w+') as file:

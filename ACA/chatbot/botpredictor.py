@@ -25,11 +25,14 @@ from ACA.chatbot.sessiondata import SessionData
 from ACA.chatbot.patternutils import check_patterns_and_replace
 from ACA.chatbot.patternutils import remove_chars_re
 from ACA.chatbot.functiondata import call_function
-
+import re
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 BRAIN_FILE = "brain.dump"
 AIMLS_FILE = "hot-startup.aiml"
 EN_BLACKLIST = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~\''
+
+
+
 
 class BotPredictor(object):
     def __init__(self, session, corpus_dir, knbase_dir, result_dir, aiml_dir, result_file):
@@ -67,6 +70,8 @@ class BotPredictor(object):
 
         self.__terrorismPost = []
 
+        self.__urls = []
+
         # Restore model rules
         if os.path.exists(brain_file_name):
             print("# Loading from brain file ... ")
@@ -94,6 +99,17 @@ class BotPredictor(object):
     def getTerrorismPost(self):
         return self.__terrorismPost
 
+    def checkIfExistURL(self,question):
+        url_tup = re.findall("(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?",question)
+        if url_tup and len(url_tup[0])>=2:
+            url_list = list(url_tup[0])
+            defitive_url = url_list[0]+"://"+url_list[1]
+            defitive_url = defitive_url + "".join(url_list[1:])
+            self.__urls.append(defitive_url)
+
+    def getSizeUrls(self):
+        return len(self.__urls)
+
     def predict(self, session_id, question, idPost = -1):
         chat_session = self.session_data.get_session(session_id)
         chat_session.before_prediction()  # Reset before each prediction
@@ -102,6 +118,7 @@ class BotPredictor(object):
             answer = "Don't you want to say something to me?"
             chat_session.after_prediction(question, answer)
             return answer
+        self.checkIfExistURL(question);
         pat_matched, new_sentence, para_list = check_patterns_and_replace(question)
         # Preprocess question by removing undesirable characters
         retrival_question = remove_chars_re(question, EN_BLACKLIST)
@@ -109,16 +126,14 @@ class BotPredictor(object):
         retrival_response = self.kmodel.respond("s " + retrival_question + " s")
         print("RETRIVAL ANSW : " + retrival_response)
         if 'XNOANSWER' not in retrival_response:
+            self.__numberMatchedRules += 1
             if 'Terrorsism:' in retrival_response:
-                self.__numberMatchedRules += 1
                 self.__terrorismPost.append( (question, idPost) )
                 retrival_response = retrival_response[11:]
             elif 'Pervert:' in retrival_response:
-                self.__numberMatchedRules += 1
                 self.__terrorismPost.append( (question, idPost) )
                 retrival_response = retrival_response[8:]
             elif 'Trade:' in retrival_response:
-                self.__numberMatchedRules += 1
                 self.__terrorismPost.append( (question, idPost) )
             return retrival_response
         for pre_time in range(2):
