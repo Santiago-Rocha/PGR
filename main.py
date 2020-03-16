@@ -69,7 +69,7 @@ def saveReplies( bots ):
         total_links = bots[0].getNumberLinks() + bots[1].getNumberLinks()
         file.write("url_total  : " + str(total_links))
         file.write("\n")
-        file.write("size_bytes_file : " + os.path.getsize(completeCoversationFile))
+        file.write("size_bytes_file : " + os.path.getsize(fileName))
 
     files.append(fileName)
     with open(fileName, 'w+') as file:
