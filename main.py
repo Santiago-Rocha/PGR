@@ -59,10 +59,10 @@ def saveReplies( bots ):
         file.write("\n")
         file.write("startCoversationSP  : " + str(bots[1].getStartTimeSP()))
         file.write("\n")
-        file.write("startCoversationSP  : " + str(bots[1].getEndTimeSP()))
+        file.write("endCoversationSP  : " + str(bots[1].getEndTimeSP()))
         file.write("\n")
 
-        file.write("url_snap  : " + str(bots[0].getNumberLinks()))
+        file.write("url_omg  : " + str(bots[0].getNumberLinks()))
         file.write("\n")
         file.write("url_snap  : " + str(bots[1].getNumberLinks()))
         file.write("\n")
