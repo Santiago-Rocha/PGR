@@ -27,7 +27,9 @@ def rulesConversationMetric(bots):
     return metrics
 
 def getNumberRulesAndNumberOfInteractions(bots):
+    print(bots[0].getNumberRulesMatched() , bots[1].getNumberRulesMatched())
     numberRulesMatched = bots[0].getNumberRulesMatched() + bots[1].getNumberRulesMatched()
+    numberRulesMatched //= 2
     numberInteractions = bots[0].getNumberOfInteractions() + bots[1].getNumberOfInteractions()
     return [numberRulesMatched, numberInteractions]
 

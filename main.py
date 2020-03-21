@@ -59,13 +59,12 @@ def saveReplies( bots ):
         file.write("\n")
         file.write("startCoversationOMG  : " + str(bots[0].getStartTime()))
         file.write("\n")
-        file.write("endCoversationOMG  : " + str(bots[0].getStartTime()))
+        file.write("endCoversationOMG  : " + str(bots[0].getEndTime()))
         file.write("\n")
         file.write("startCoversationSP  : " + str(bots[1].getStartTimeSP()))
         file.write("\n")
         file.write("startCoversationSP  : " + str(bots[1].getEndTimeSP()))
         file.write("\n")
-
         file.write("url_snap  : " + str(bots[0].getNumberLinks()))
         file.write("\n")
         file.write("url_snap  : " + str(bots[1].getNumberLinks()))
@@ -73,7 +72,7 @@ def saveReplies( bots ):
         total_links = bots[0].getNumberLinks() + bots[1].getNumberLinks()
         file.write("url_total  : " + str(total_links))
         file.write("\n")
-        file.write("size_bytes_file : " + os.path.getsize(completeCoversationFile))
+        file.write("size_bytes_file :" + str(os.path.getsize(completeCoversationFile)))
 
     files.append(fileName)
     with open(fileName, 'w+') as file:

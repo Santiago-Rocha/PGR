@@ -127,6 +127,7 @@ class BotPredictor(object):
         print("RETRIVAL ANSW : " + retrival_response)
         if 'XNOANSWER' not in retrival_response:
             self.__numberMatchedRules += 1
+            print("VAN",self.__numberMatchedRules,"REGLAS")
             if 'Terrorsism:' in retrival_response:
                 self.__terrorismPost.append( (question, idPost) )
                 retrival_response = retrival_response[11:]

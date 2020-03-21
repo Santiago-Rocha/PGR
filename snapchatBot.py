@@ -41,6 +41,7 @@ class Extractor(object):
         self.reset()
         self.HOST = "localhost"
         self.PORT = 9999
+        self.__socket = None
 
 
 
@@ -55,26 +56,28 @@ class Extractor(object):
     def __execute_chat_bot(self, pwdSnap: str):
         #os.system("mvn exec:java -f " + pwdSnap)
         #os.system("start /wait cmd /c mvn exec:java -f " + pwdSnap)
+        print(pwdSnap)
         self.snap_process = subprocess.Popen("start /wait cmd /c mvn exec:java -f " + pwdSnap, shell=True)
 
 
     def __bot_socket(self):
         print("Inciando socket")
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.__socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
-            s.bind((self.HOST, self.PORT))
+            self.__socket.bind((self.HOST, self.PORT))
         except socket.error as err:
             print('Bind failed. Error Code : '.format(err))
 
-        s.settimeout(60)
-        s.listen(10)
+        self.__socket.settimeout(120)
+        self.__socket.listen(10)
 
         try:
             print("Socket Listening")
-            self.conn, self.addr = s.accept()
+            self.conn, self.addr = self.__socket.accept()
 
             print("Socket Connected")
-            s.settimeout(600)
+            self.__socket.settimeout(1200)
+            print("TIME OUT",self.__socket.gettimeout())
             self.__init_conversation()
         except socket.timeout:
             print("error connecting to JAVA socket")
@@ -121,10 +124,10 @@ class Extractor(object):
 
         self.appium = threading.Thread(target=self.__start_appium)
         self.appium.start()
-        time.sleep(10)
+        time.sleep(20)
 
         # Open socket
-        self.snapchat = threading.Thread(target=self.__execute_chat_bot , args=("C:\\Users\\user\\Documents\\Snapchat",))
+        self.snapchat = threading.Thread(target=self.__execute_chat_bot , args=("C:\\Users\\PERSONAL\\Documents\\PGR\\Snapchat",))
         self.snapchat.start()
 
         #Get time when SP started
