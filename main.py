@@ -48,6 +48,16 @@ def saveReplies( bots ):
                 except:
                     print("fail")
             file.write("\n")
+    
+    files.append(fileName)
+    with open(fileName, 'w+') as file:
+        for response in userResponses:
+            for i in response:
+                try:
+                    file.write(i)
+                except:
+                    print("fail")
+            file.write("\n")
 
     with open(other_metrics, "w+") as file:
         numberRulesMatched, numberInteractions = analytics.getNumberRulesAndNumberOfInteractions(bots)
@@ -66,6 +76,7 @@ def saveReplies( bots ):
         file.write("endCoversationSP  : " + str(bots[1].getEndTimeSP()))
         file.write("\n")
         file.write("url_snap  : " + str(bots[0].getNumberLinks()))
+        file.write("\n")
         file.write("url_omg  : " + str(bots[0].getNumberLinks()))
         file.write("\n")
         file.write("url_snap  : " + str(bots[1].getNumberLinks()))
@@ -73,17 +84,9 @@ def saveReplies( bots ):
         total_links = bots[0].getNumberLinks() + bots[1].getNumberLinks()
         file.write("url_total  : " + str(total_links))
         file.write("\n")
-        file.write("size_bytes_file : " + os.path.getsize(fileName))
+        file.write("size_bytes_file : " + str(os.path.getsize(fileName)))
 
-    files.append(fileName)
-    with open(fileName, 'w+') as file:
-        for response in userResponses:
-            for i in response:
-                try:
-                    file.write(i)
-                except:
-                    print("fail")
-            file.write("\n")
+    
 
 
     return(files)
