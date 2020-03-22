@@ -158,6 +158,7 @@ if __name__ == '__main__':
         saveMetrics( emotionsAndSentiments[0], emotionsAndSentiments[1], timeMetric, rulesMetric, repFiles )
         # OMEGLE NOTIFICATION
         omegle.reset()
+        snapchat.reset()
 
 """
 if __name__ == '__main__':
