@@ -199,3 +199,10 @@ class BotPredictor(object):
             last_word = word
 
         return ''.join(word_list).strip(), if_func_val
+
+    def reset(self):
+        # Match rules
+        self.__numberMatchedRules = 0
+        self.__terrorismPost = []
+        self.__urls = []
+

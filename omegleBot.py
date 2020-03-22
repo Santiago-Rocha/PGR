@@ -218,3 +218,4 @@ class Extractor(object):
         self.__currentLength = 0
         self.__timeOfConversation = 0
         self.__initTimeUserResponse = 0
+        self.__predictor.reset()
