@@ -53,7 +53,7 @@ pip install package-name
 ```
 
 ### Application controller for content change
-In order to exchange content with a suspect a socket was added to communicate the models with different applications such as kik, snpachat, etc. The implementation used in snapchat is in the following [repository](https://github.com/CrkJohn/Snapchat) and its configuration is in the (snapchatBot.py)[snapchatBot.py] file
+In order to exchange content with a suspect a socket was added to communicate the models with different applications such as kik, snpachat, etc. The implementation used in snapchat is in the following [repository](https://github.com/CrkJohn/Snapchat) and its configuration is in the [snapchatBot.py](https://github.com/Santiago-Rocha/PGR/blob/master/snapchatBot.py) file
 
 ### Before using the project
 
@@ -125,7 +125,8 @@ However, before doing so, you must ensure the following indications:
 
 - Check your Google Chrome browser; you must keep your Telegram account open (where the suspects will speak to you) and you must verify the anti-bot captcha on Omegle. Also, you must close all Google Chrome processes on Task Manager.
 
-- You must change in the file *./ACA/Data/Rules/illegalcontent/hotmaterial.aiml* all those fields about the Telegram username (by default is @alanaJe) that you are going to use.
+- You must change in the file *./ACA/Data/Rules/illegalcontent/hotmaterial.aiml* all those fields about the Snpachat username (by default is p_ramirezxxx) that you are going to use.
+
 
 ```bash
 py main.py
