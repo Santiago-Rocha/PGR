@@ -51,27 +51,9 @@ To download any of the packages its recommended to use the pip command, replacin
 ```bash
 pip install package-name
 ```
-### Server APPIUM
 
-To achieve the manipulation of the mobile equipment, we have to have downloaded the server APPIUM.
-
-```bash
-npm install -g appium
-```
-If the server was properly installed, running the APPIUM command on the console should result in the following
-
-```bash
-C:\Users\user>appium
-[Appium] Welcome to Appium v1.15.1
-[Appium] Appium REST http interface listener started on 0.0.0.0:4723
-```
-
-### Activate developer mode
-
-To be able to manipulate the cell phone, you must activate the mode developed in the cell phone,[HERE](https://www.howtogeek.com/129728/how-to-access-the-developer-options-menu-and-enable-usb-debugging-on-android-4.2/) is an example of how you would do it 
-
-
-
+### Application controller for content change
+In order to exchange content with a suspect a socket was added to communicate the models with different applications such as kik, snpachat, etc. The implementation used in snapchat is in the following [repository](https://github.com/CrkJohn/Snapchat) and its configuration is in the (snapchatBot.py)[snapchatBot.py] file
 
 ### Before using the project
 
@@ -106,8 +88,6 @@ py ACA/chatbot/bottrainer.py
 ```bash
 py ACA/chatbot/botui.py
 ```
-
-
 
 ### Sentiment Analysis Module
 
