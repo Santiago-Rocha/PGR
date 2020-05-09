@@ -45,6 +45,7 @@ Before installing or downloading the project, you must ensure that you have inst
 |     nltk     | The natural language tool gives the project the advantage of tokenize words, its used in the different models.                                                                         |
 |      bs4     | The Beautiful Soup library allows you to extract data from HTML files, the project use it to extract the knowledge of a GitHub repository, for mapping Slangs in the English language. |
 |  python-aiml | This library serves as an inference engine to read xml files as the AIML form, which contain the entire knowledge base of the retrieval-based conversational module                    |
+| skfuzzy | Scikit-Fuzzy is a collection of fuzzy logic algorithms intended for use in the SciPy Stack, written in the Python computing language. |
 
 To download any of the packages its recommended to use the pip command, replacing the _package-name_ part:
 
