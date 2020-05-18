@@ -11,19 +11,20 @@ class Classification:
    :returns: a Classification
    :rtype: Node
    """
+
     def __init__(self, length_conversation):
-        self.length_conversation = 10
+        self.length_conversation = length_conversation
         self.create_domains()
         self.create_function()
         self.create_consequent()
         self.custom_functions()
-        self.define_ctrl();
+        self.define_ctrl()
 
     def create_domains(self):
         self.opinion_universe = np.arange(0, 1.1, 0.5)
         self.emotion_universe = np.arange(0, 1.1, 0.5)
-        self.rules_universe = np.arange(0, self.length_conversation, 1)
-        self.time_universe = np.arange(0, 3, 0.2)
+        self.rules_universe = np.arange(0, self.length_conversation + 1)
+        self.time_universe = np.arange(0, 180)
         self.suspect_universe = np.arange(0, 1.1, 0.5)
 
     def create_function(self):
@@ -43,47 +44,113 @@ class Classification:
         self.custom_suspect_function_membership()
 
     def custom_rules_function_membership(self):
-        self.time['less'] = fuzz.trimf(self.time.universe, [0, 0, self.length_conversation//2])
-        self.time['medium'] = fuzz.trimf(self.time.universe, [0, self.length_conversation//2, self.length_conversation])
-        self.time['high'] = fuzz.trimf(self.time.universe, [self.length_conversation // 2, self.length_conversation, self.length_conversation])
+        self.rules['less'] = fuzz.trimf(self.rules.universe, [0, 0, self.length_conversation // 2])
+        self.rules['medium'] = fuzz.trimf(self.rules.universe,
+                                          [0, self.length_conversation // 2, self.length_conversation])
+        self.rules['high'] = fuzz.trimf(self.rules.universe, [self.length_conversation // 2, self.length_conversation,
+                                                              self.length_conversation])
 
     def custom_time_function_membership(self):
-        self.rules['high'] = fuzz.trimf(self.rules.universe, [0, 90, 180])
-        self.rules['medium'] = fuzz.trimf(self.rules.universe, [0, 90, 180])
-        self.rules['less'] = fuzz.trimf(self.rules.universe, [90, 180, 180])
+        self.time['high'] = fuzz.trimf(self.time.universe, [0, 90, 180])
+        self.time['medium'] = fuzz.trimf(self.time.universe, [0, 90, 180])
+        self.time['less'] = fuzz.trimf(self.time.universe, [90, 180, 180])
 
     def custom_opinion_function_membership(self):
-        self.opinion['low'] = fuzz.trimf(self.opinion.universe, [0.0, 0.0, 0.5])
-        self.opinion['medium'] = fuzz.trimf(self.opinion.universe, [0.0,  0.5, 1.0])
-        self.opinion['high'] = fuzz.trimf(self.opinion.universe, [0.5, 1.0, 1.0])
+        self.opinion['negativeO'] = fuzz.trimf(self.opinion.universe, [0.0, 0.0, 0.5])
+        self.opinion['neutralO'] = fuzz.trimf(self.opinion.universe, [0.0, 0.5, 1.0])
+        self.opinion['positiveO'] = fuzz.trimf(self.opinion.universe, [0.5, 1.0, 1.0])
 
     def custom_emotion_function_membership(self):
-        self.emotion['low'] = fuzz.trimf(self.emotion.universe, [0.0, 0.0, 0.5])
-        self.emotion['medium'] = fuzz.trimf(self.emotion.universe, [0.0,  0.5, 1.0])
-        self.emotion['high'] = fuzz.trimf(self.emotion.universe, [0.5, 1.0, 1.0])
+        self.emotion['negativeE'] = fuzz.trimf(self.emotion.universe, [0.0, 0.0, 0.5])
+        self.emotion['neutralE'] = fuzz.trimf(self.emotion.universe, [0.0, 0.5, 1.0])
+        self.emotion['positiveE'] = fuzz.trimf(self.emotion.universe, [0.5, 1.0, 1.0])
 
     def custom_suspect_function_membership(self):
-        self.suspect['low'] = fuzz.trimf(self.suspect.universe, [0.0, 0.0, 0.5])
-        self.suspect['medium'] = fuzz.trimf(self.suspect.universe, [0.0,  0.5, 1.0])
-        self.suspect['high'] = fuzz.trimf(self.suspect.universe, [0.5, 1.0, 1.0])
+        self.suspect['indifferent'] = fuzz.trimf(self.suspect.universe, [0.0, 0.0, 0.5])
+        self.suspect['interested'] = fuzz.trimf(self.suspect.universe, [0.0, 0.5, 1.0])
+        self.suspect['pervert'] = fuzz.trimf(self.suspect.universe, [0.5, 1.0, 1.0])
 
     def define_rule(self):
         rules = []
-        rules.append(ctrl.Rule(self.time['high'] | self.emotion['high'] | rules['high'] | self.opinion['high'], self.suspect['high']))
-        rules.append(ctrl.Rule(self.time['less'] | self.emotion['high'], self.suspect['high']))
-        rules.append(ctrl.Rule(self.opinion['medium'] | self.emotion['medium'], self.time['medium'], self.suspect['medium']))
-        return rules
+        # Pervert rules
+        rules.append(
+            ctrl.Rule(self.time['high'] & self.emotion['positiveE'] & self.rules['high'] & self.opinion['positiveO'],
+                      self.suspect['pervert']))
+        rules.append(
+            ctrl.Rule(self.time['medium'] & self.emotion['positiveE'] & self.rules['high'] & self.opinion['positiveO'],
+                      self.suspect['pervert']))
+        rules.append(
+            ctrl.Rule(self.time['less'] & self.emotion['positiveE'] & self.rules['high'] & self.opinion['positiveO'],
+                      self.suspect['pervert']))
+        rules.append(
+            ctrl.Rule(self.time['high'] & self.emotion['positiveE'] & self.rules['less'] & self.opinion['positiveO'],
+                      self.suspect['pervert']))
+
+        rules.append(
+            ctrl.Rule(self.time['high'] & self.emotion['positiveE'] & self.rules['medium'] & self.opinion['positiveO'],
+                      self.suspect['pervert']))
+
+        rules.append(
+            ctrl.Rule(self.time['medium'] & self.emotion['positiveE'] & self.rules['high'] & self.opinion['positiveO'],
+                      self.suspect['pervert']))
+
+        # interested rules
+        rules.append(
+            ctrl.Rule(self.time['less'] & self.emotion['positiveE'] & self.rules['less'] & self.opinion['positiveO'],
+                      self.suspect['interested']))
+        rules.append(
+            ctrl.Rule(self.time['less'] & self.emotion['positiveE'] & self.rules['high'] & self.opinion['neutralO'],
+                      self.suspect['interested']))
+
+        rules.append(
+            ctrl.Rule(self.time['less'] & self.emotion['positiveE'] & self.rules['high'] & self.opinion['neutralO'],
+                      self.suspect['interested']))
+
+        rules.append(
+            ctrl.Rule(self.time['high'] & self.emotion['neutralE'] & self.rules['medium'] & self.opinion['neutralO'],
+                      self.suspect['interested']))
+
+        rules.append(
+            ctrl.Rule(self.time['less'] & self.emotion['neutralE'] & self.rules['medium'] & self.opinion['neutralO'],
+                      self.suspect['interested']))
+
+
+        # indifferent rules
+        rules.append(
+            ctrl.Rule(self.time['less'] & self.emotion['negativeE'] & self.rules['medium'] & self.opinion['negativeO'],
+                      self.suspect['indifferent']))
+        rules.append(
+            ctrl.Rule(self.time['high'] & self.emotion['negativeE'] & self.rules['less'] & self.opinion['negativeO'],
+                      self.suspect['indifferent']))
+        rules.append(
+            ctrl.Rule(self.time['less'] & self.emotion['negativeE'] & self.rules['less'] & self.opinion['negativeO'],
+                      self.suspect['indifferent']))
+
+        return ctrl.ControlSystem(rules)
 
     def define_ctrl(self):
-        self.classification_suspect = ctrl.ControlSystemSimulation(self.define_rule())
+        rules = self.define_rule()
+        self.classification_suspect = ctrl.ControlSystemSimulation(rules)
 
-    def set_state_metric(self, value_opinion : int , type : str):
-        self.classification_suspect[type] = value_opinion
+    def set_state_metric(self, value_opinion: int, type: str):
+        self.classification_suspect.input[type] = value_opinion
 
     def compute(self):
         self.classification_suspect.compute()
 
+    def show(self):
+        self.suspect.view(sim=self.classification_suspect)
+        print(self.classification_suspect.output['suspect'])
+
+    def show_suspect(self):
+        self.suspect.view()
 
 
-
-
+if __name__ == '__main__':
+    classificator = Classification(110)
+    classificator.set_state_metric(180, 'time')
+    classificator.set_state_metric(1.0, 'emotion')
+    classificator.set_state_metric(1.0, 'opinion')
+    classificator.set_state_metric(110, 'rules')
+    classificator.compute()
+    classificator.show()
