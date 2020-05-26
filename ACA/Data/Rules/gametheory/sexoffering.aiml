@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+    <category>
+        <pattern>* HOW MUCH *</pattern>
+        <template>Pervert: i sell my video for 30 dollar, or i could buy one for 25 dollar</template>
+    </category>
+
+    <category>
+        <pattern>* SEE U *</pattern>
+        <template>Pervert: np, but its not that easy, ill suggest a transaction</template>
+    </category>
+
+    <category>
+        <pattern>* OFFER *</pattern>
+        <template>Pervert: Well, ill take it but whats the cost?</template>
+    </category>
+
+    <category>
+        <pattern>* DEAL *</pattern>
+        <template>Pervert: here is difficult u have something so i can contact u </template>
+    </category>
+
+	<category>
+        <pattern>* LOOKING FOR *</pattern>
+        <template>Pervert: im looking for u know, some hot material</template>
+    </category>
+
+	<category>
+        <pattern>* MEET *</pattern>
+        <template>Pervert: meet can be difficult know as I do not know you </template>
+    </category>
+
+	<category>
+        <pattern>* BUY *</pattern>
+        <template>Pervert: but what you have to offer exactly?</template>
+    </category>
+
+    <category>
+        <pattern>* PAY *</pattern>
+        <template>Pervert: I would be able to pay for some material, depends on the quality</template>
+    </category>
+
+	<category>
+        <pattern>* SELL *</pattern>
+        <template>Pervert: I am used to selling offers</template>
+    </category>
+
+    <category>
+        <pattern>* TRANSFER *</pattern>
+        <template>Pervert: by sure we may find a channel to make the transfer</template>
+    </category>
+
+	<category>
+        <pattern>* HOT CONTENT *</pattern>
+        <template>Pervert: hot content is what I look for</template>
+    </category>
+
+    <category>
+        <pattern>* HOT VIDEO *</pattern>
+        <template>Pervert: hot videos are more attactive than images</template>
+    </category>
+
+	<category>
+        <pattern>* EXCHANGE *</pattern>
+        <template>Pervert: we can also exchange material </template>
+    </category>
+
+    <category>
+        <pattern>* SHOW * </pattern>
+        <template>Pervert: i would require to see a samples right now before paying</template>
+    </category>
+
+	<category>
+        <pattern>* PRIVATE *</pattern>
+        <template>Pervert: You may consider myself a private and stealthy guy</template>
+    </category>
+</aiml>

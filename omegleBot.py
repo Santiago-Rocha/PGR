@@ -63,6 +63,9 @@ class Extractor(object):
         self.__init = False
         userResponse = False
         self.__tradeAccomplish = False
+        self.__unitTimeStart = time.time()
+        self.__unitTimeFinal = 0
+        self.__totalFinal = 0
 
         # Setting Topics
         topics = self.__driver.find_element_by_xpath("//input[contains(@class,'newtopicinput')]")
@@ -95,6 +98,8 @@ class Extractor(object):
                 try:
                     print("=======================TEST============================") 
                     try:
+                        self.__unitTimeFinal = time.time() - __unitTimeStart
+                        self.__totalFinal += self.__unitTimeFinal
                         time.sleep(3)
                         self.response( userResponse )
                     except:

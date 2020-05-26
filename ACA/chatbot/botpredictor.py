@@ -17,6 +17,7 @@ import os
 import string
 import aiml
 import tensorflow as tf
+import re
 
 from ACA.chatbot.tokenizeddata import TokenizedData
 from ACA.chatbot.modelcreator import ModelCreator
@@ -25,10 +26,10 @@ from ACA.chatbot.sessiondata import SessionData
 from ACA.chatbot.patternutils import check_patterns_and_replace
 from ACA.chatbot.patternutils import remove_chars_re
 from ACA.chatbot.functiondata import call_function
-import re
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 BRAIN_FILE = "brain.dump"
-AIMLS_FILE = "hot-startup.aiml"
+AIMLS_FILE = "game-theory.aiml"
 EN_BLACKLIST = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~\''
 
 
@@ -67,13 +68,14 @@ class BotPredictor(object):
 
         # Match rules
         self.__numberMatchedRules = 0
+        self.__totalSupectMsg = 0
 
         self.__terrorismPost = []
 
         self.__urls = []
 
         # Restore model rules
-        if os.path.exists(brain_file_name):
+        """if os.path.exists(brain_file_name):
             print("# Loading from brain file ... ")
             self.kmodel.loadBrain(brain_file_name)
         else:
@@ -82,7 +84,7 @@ class BotPredictor(object):
             self.kmodel.bootstrap(learnFiles=os.path.abspath(aimls_file_name), commands="load aiml b")
             print("# Saving brain file: " + BRAIN_FILE)
             self.kmodel.saveBrain(brain_file_name)
-        
+        """
         # Create Generative model
         print("# Creating inference model ...")
         self.model = ModelCreator(training=False, tokenized_data=tokenized_data,
@@ -110,10 +112,10 @@ class BotPredictor(object):
     def getSizeUrls(self):
         return len(self.__urls)
 
-    def predict(self, session_id, question, idPost = -1):
+    def predict(self, session_id, question, idPost = -1, totalTime, unitTime):
         chat_session = self.session_data.get_session(session_id)
         chat_session.before_prediction()  # Reset before each prediction
-
+        self.__totalMsgSent +=1
         if question.strip() == '':
             answer = "Don't you want to say something to me?"
             chat_session.after_prediction(question, answer)
@@ -123,7 +125,8 @@ class BotPredictor(object):
         # Preprocess question by removing undesirable characters
         retrival_question = remove_chars_re(question, EN_BLACKLIST)
         print("RETRIVAL QUST : " + "s " + retrival_question + " s")
-        retrival_response = self.kmodel.respond("s " + retrival_question + " s")
+        ##retrival_response = self.kmodel.respond("s " + retrival_question + " s")
+        retrival_response = function_response(totalTime,unitTime,retrival_question)
         print("RETRIVAL ANSW : " + retrival_response)
         if 'XNOANSWER' not in retrival_response:
             self.__numberMatchedRules += 1
@@ -205,4 +208,23 @@ class BotPredictor(object):
         self.__numberMatchedRules = 0
         self.__terrorismPost = []
         self.__urls = []
+    
+
+    def function_response(total_time, unit_time,msg):
+        rules_not_matched = self.__totalSupectMsg-self.rules_matched
+        rules_value = self.rules_matched/rules_not_matched if rules_not_matched != 0 else self.rules_matched
+        time_average = (total_time/unit_time)/ self.__totalSupectMsg if self.__totalSupectMsg != 0 else 0
+        final_value = time_average*rules_value
+        print(rules_value,time_average,final_value)
+        self.kmodel = aiml.Kernel()
+        self.kmodel.learn("game-theory.xml")
+        if(final_value < 0.5):
+            self.kmodel.respond("RHAEGAL")
+        elif(final_value >= 0.5 and final_value < 2.0):
+            self.kmodel.respond("VISERION")
+        elif(final_value >= 2.0 and final_value < 4.0):
+            self.kmodel.respond("DROGON") 
+        else:
+            return "XNOANSWER"
+        return self.kmodel.respond(msg)
 

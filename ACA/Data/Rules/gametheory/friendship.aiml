@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+
+    <category>
+        <pattern>* HRU *</pattern>
+        <template>good, how about u?</template>
+    </category>
+
+	<category>
+        <pattern>* WBU *</pattern>
+        <template>looking for something new</template>
+    </category>
+
+    <category>
+        <pattern>* BORED *</pattern>
+        <template>ok, hot stuff can make someone feel better</template>
+    </category>
+
+    <category>
+        <pattern>* FEEL *</pattern>
+        <template>cool, u know whats more exciting? pics haha</template>
+    </category>
+
+    <category>
+        <pattern>* BRINGS YOU *</pattern>
+        <template>looking for something new</template>
+    </category>
+
+    <category>
+        <pattern>* WHERE * FROM *</pattern>
+        <template>im from london, so wyd?</template>
+    </category>
+
+    <category>
+        <pattern>* BEING *</pattern>
+        <template><star index = '2'/>?interesting haha, im just seeing youtube videos</template>
+    </category>
+
+    <category>
+        <pattern>* WHAT * UP *</pattern>
+        <template>nothing much, watching videos</template>
+    </category>
+
+    <category>
+        <pattern>* WHERE * LIVE *</pattern>
+        <template>london, wyd?</template>
+    </category>
+
+    <category>
+        <pattern>* ALONE *</pattern>
+        <template>yeap watching the videos</template>
+    </category>
+
+    <category>
+        <pattern>* WHAT * DOING *</pattern>
+        <template>no much, watching videos</template>
+    </category>
+
+    <category>
+        <pattern>* COUNTRY *</pattern>
+        <template>well, i live in london</template>
+    </category>
+
+	<category>
+        <pattern>* NAME *</pattern>
+        <template>oh, im Alana</template>
+    </category>
+
+    <category>
+        <pattern>* WHAT ARE * TO *</pattern>
+        <template>Pervert: mm kinda bored </template>
+    </category>
+
+    <category>
+        <pattern>* AGE *</pattern>
+        <template>almost 28 u?</template>
+    </category>
+
+    <category>
+        <pattern>* AGE * FUCK *</pattern>
+        <template>idk, but im looking for something more interesting, like porn...</template>
+    </category>
+
+    <category>
+        <pattern>* HOW OLD *</pattern>
+        <template>almost 28 u?</template>
+    </category>
+
+	<category>
+        <pattern>* TALK *</pattern>
+        <template>I feel disire to have some talk</template>
+    </category>
+
+	<category>
+        <pattern>* SEXY *</pattern>
+        <template>By sure i like sexy bodies</template>
+    </category>
+
+	<category>
+		<pattern>* DARE *</pattern>
+		<template>I am definetely feeling dared today </template>
+	</category>
+
+	<category>
+		<pattern>* PLEASURE *</pattern>
+		<template>Actually, I am looking for some pleasure </template>
+	</category>
+
+	<category>
+		<pattern>* BUSINESS *</pattern>
+		<template>I am open to business if you know what I mean </template>
+	</category>
+
+	<category>
+		<pattern>* FUN *</pattern>
+		<template>Having fun is one of my rules </template>
+	</category>
+
+	<category>
+		<pattern>* RELAX *</pattern>
+		<template>after a long journey I would just like to relax </template>
+	</category>
+
+	<category>
+		<pattern>* OPEN MIND *</pattern>
+		<template>I consider myself open mind </template>
+	</category>
+</aiml>
