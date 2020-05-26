@@ -112,7 +112,7 @@ class BotPredictor(object):
     def getSizeUrls(self):
         return len(self.__urls)
 
-    def predict(self, session_id, question, idPost = -1, totalTime, unitTime):
+    def predict(self, session_id, question, totalTime, unitTime, idPost = -1):
         chat_session = self.session_data.get_session(session_id)
         chat_session.before_prediction()  # Reset before each prediction
         self.__totalMsgSent +=1

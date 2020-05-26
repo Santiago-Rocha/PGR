@@ -147,7 +147,7 @@ class Extractor(object):
             for key, value in slangs.getSlangs().items():
                 words = words.replace(" " + key + " ", " " + value + " ")
             print(words)
-            botResponse = self.__predictor.predict(self.__session_id, words.lower(), len(self.__conversation))
+            botResponse = self.__predictor.predict(self.__session_id, words.lower(), self.__totalFinal , self.__unitTimeFinal ,len(self.__conversation))
             if 'Trade:' in botResponse:
                 self.__tradeAccomplish = True
                 botResponse = botResponse[6:]
